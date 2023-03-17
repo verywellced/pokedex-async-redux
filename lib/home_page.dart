@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
+          // TODO: This text will be remove
           child: Text('This app is working'),
         ),
       ),
