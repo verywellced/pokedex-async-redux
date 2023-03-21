@@ -12,10 +12,16 @@ Future<void> main() async {
     actionObservers: kReleaseMode ? null : [ConsoleActionObserver<AppState>()],
   );
 
-// TODO: API testing code to be removed
+// TODO: API testing code for pokemon list  to be removed
   final pokemons =
       await ApiService().pokemonApi.getPokemonList(offset: '0', limit: '151');
   pokemons;
+
+  // TODO: API testing code for pokemon details to be removed
+  final pokemonDetails =
+      await ApiService().pokemonApi.getPokemonDetails(pokemonId: '25');
+
+  pokemonDetails;
 
   runApp(
     StoreProvider(
