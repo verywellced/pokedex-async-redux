@@ -1,14 +1,21 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/foundation.dart';
+import 'package:pokedex_start/api/api_service.dart';
 import 'package:pokedex_start/state/app_state.dart';
 import 'package:pokedex_start/home_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+// TODO : Future in the main class to be removed
+Future<void> main() async {
   final store = Store<AppState>(
     initialState: AppState(),
     actionObservers: kReleaseMode ? null : [ConsoleActionObserver<AppState>()],
   );
+
+// TODO: API testing code to be removed
+  final pokemons =
+      await ApiService().pokemonApi.getPokemonList(offset: '0', limit: '151');
+  pokemons;
 
   runApp(
     StoreProvider(
