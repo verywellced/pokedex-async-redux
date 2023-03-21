@@ -19,7 +19,7 @@ Future<void> main() async {
 
   // TODO: API testing code for pokemon details to be removed
   final pokemonDetails =
-      await ApiService().pokemonApi.getPokemonDetails(pokemonId: '25');
+      await ApiService().pokemonApi.getPokemonDetails(name: 'bulbasaur');
 
   pokemonDetails;
 
