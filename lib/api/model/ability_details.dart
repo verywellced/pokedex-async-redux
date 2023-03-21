@@ -10,6 +10,5 @@ class AbilityDetails with _$AbilityDetails {
     @JsonKey(name: 'url') required String url,
   }) = _AbilityDetails;
 
-  factory AbilityDetails.fromJson(Map<String, dynamic> json) =>
-      _$AbilityDetailsFromJson(json);
+  factory AbilityDetails.fromJson(Map<String, dynamic> json) => _$AbilityDetailsFromJson(json);
 }

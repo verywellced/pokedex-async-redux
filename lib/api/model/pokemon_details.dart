@@ -17,6 +17,5 @@ class PokemonDetails with _$PokemonDetails {
     @JsonKey(name: 'stats') required List<Stats> statList,
   }) = _PokemonDetails;
 
-  factory PokemonDetails.fromJson(Map<String, dynamic> json) =>
-      _$PokemonDetailsFromJson(json);
+  factory PokemonDetails.fromJson(Map<String, dynamic> json) => _$PokemonDetailsFromJson(json);
 }
