@@ -13,13 +13,11 @@ Future<void> main() async {
   );
 
 // TODO: API testing code for pokemon list  to be removed
-  final pokemons =
-      await ApiService().pokemonApi.getPokemonList(offset: '0', limit: '151');
+  final pokemons = await ApiService().pokemonApi.getPokemonList(offset: '0', limit: '151');
   pokemons;
 
   // TODO: API testing code for pokemon details to be removed
-  final pokemonDetails =
-      await ApiService().pokemonApi.getPokemonDetails(name: 'bulbasaur');
+  final pokemonDetails = await ApiService().pokemonApi.getPokemonDetails(name: 'bulbasaur');
 
   pokemonDetails;
 
