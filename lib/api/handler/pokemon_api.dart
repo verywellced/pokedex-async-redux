@@ -37,6 +37,8 @@ class PokemonApi {
 
     final response = await apiClient.dio.getUri(uri);
 
+    //Just add comments
+
     return PokemonDetails.fromJson(response.data);
   }
 }
