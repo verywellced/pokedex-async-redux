@@ -10,6 +10,5 @@ class MoveDetails with _$MoveDetails {
     @JsonKey(name: 'url') required String url,
   }) = _MoveDetails;
 
-  factory MoveDetails.fromJson(Map<String, dynamic> json) =>
-      _$MoveDetailsFromJson(json);
+  factory MoveDetails.fromJson(Map<String, dynamic> json) => _$MoveDetailsFromJson(json);
 }
