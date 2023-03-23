@@ -1,6 +1,6 @@
 import 'package:pokedex_start/api/model/pokemon.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pokedex_start/api/model/pokemon_details.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_state.freezed.dart';
 part 'app_state.g.dart';
