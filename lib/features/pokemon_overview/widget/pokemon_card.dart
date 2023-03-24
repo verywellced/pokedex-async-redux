@@ -1,17 +1,14 @@
 import 'package:dartx/dartx.dart';
+import 'package:pokedex_start/api/model/pokemon.dart';
 import 'package:pokedex_start/utilities/constant.dart';
+import 'package:pokedex_start/utilities/extensions/string_extensions.dart';
 import 'package:pokedex_start/widget/app_text.dart';
 import 'package:flutter/material.dart';
 
 class PokemonCard extends StatelessWidget {
-  const PokemonCard({
-    super.key,
-    required this.name,
-    required this.imageUrl,
-  });
+  const PokemonCard({super.key, required this.pokemon});
 
-  final String name;
-  final String imageUrl;
+  final Pokemon pokemon;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +17,11 @@ class PokemonCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FadeInImage(
-            placeholder: const AssetImage(
-              cardTransparentPlaceholder,
-            ),
-            image: NetworkImage(imageUrl),
+            placeholder: const AssetImage(cardTransparentPlaceholder),
+            image: NetworkImage(pokemon.url.toPokemonImageUrl),
             width: cardImageSize,
           ),
-          BodySmallText(text: name.capitalize())
+          BodySmallText(text: pokemon.name.capitalize())
         ],
       ),
     );

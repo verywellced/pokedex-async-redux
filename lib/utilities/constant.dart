@@ -13,12 +13,12 @@ const samplePokemonName = 'ditto';
 const gridRowCount = 2;
 
 /// Pokemon Card
-const cardImageInitialUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/';
 const cardTransparentPlaceholder = 'assets/img/transparent.png';
 const cardImageSize = 150.0;
 const cardRatio = 1.0;
 const addOneToPokemonIndex = 1;
-const cardPokemonBaseUrl = 'https://pokeapi.co/api/v2/pokemon';
+const basedImageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/[index].png';
+const indexKey = '[index]';
 
 /// Font Size
 const fontSizeSmallText = 14.0;
