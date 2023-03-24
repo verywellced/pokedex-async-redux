@@ -18,6 +18,7 @@ const cardTransparentPlaceholder = 'assets/img/transparent.png';
 const cardImageSize = 150.0;
 const cardRatio = 1.0;
 const addOneToPokemonIndex = 1;
+const cardPokemonBaseUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 /// Font Size
 const fontSizeSmallText = 14.0;

@@ -22,7 +22,7 @@ class PokemonGridView extends StatelessWidget {
       ),
       itemBuilder: (BuildContext context, int index) {
         final pokemon = pokemons[index];
-        int pokemonId = index + addOneToPokemonIndex;
+        String pokemonId = pokemon.url.replaceAll(cardPokemonBaseUrl, '').replaceAll('/', '');
         String pokemonImageUrl = "$cardImageInitialUrl/$pokemonId.png";
 
         return PokemonCard(
