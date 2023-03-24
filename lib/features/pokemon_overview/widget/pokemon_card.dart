@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:pokedex_start/utilities/constant.dart';
 import 'package:pokedex_start/widget/app_text.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class PokemonCard extends StatelessWidget {
             image: NetworkImage(imageUrl),
             width: cardImageSize,
           ),
-          BodySmallText(text: name)
+          BodySmallText(text: name.capitalize())
         ],
       ),
     );
