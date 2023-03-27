@@ -24,7 +24,6 @@ class GetPokemonsAction extends LoadingAction {
 /// Getting the details of a pokemon
 class GetPokemonDetailsAction extends ReduxAction<AppState> {
   GetPokemonDetailsAction({required this.pokemonName});
-
   final String pokemonName;
 
   @override
