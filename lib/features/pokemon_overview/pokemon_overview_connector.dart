@@ -2,7 +2,6 @@ import 'package:pokedex_start/features/pokemon_overview/pokemon_overview_page.da
 import 'package:pokedex_start/features/pokemon_overview/pokemon_overview_vm.dart';
 import 'package:pokedex_start/state/action/pokemon_actions.dart';
 import 'package:pokedex_start/state/app_state.dart';
-
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class PokemonOverviewConnector extends StatelessWidget {
     return StoreConnector<AppState, PokemonOverviewVm>(
       vm: () => PokemonOverviewFactory(),
       onInit: (store) => store.dispatchAsync(GetPokemonsAction()),
-      builder: (context, vm) => PokemonOverviewPage(pokemons: vm.pokemons),
+      builder: (context, vm) => MaterialApp(home: PokemonOverviewPage(pokemons: vm.pokemons)),
     );
   }
 }

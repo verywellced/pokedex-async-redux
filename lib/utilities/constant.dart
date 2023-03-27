@@ -1,5 +1,6 @@
-/// Pokemon Actions Constant
+/// General
 const appName = 'Pokedex';
+const emptyString = '';
 
 /// Pokemon Actions Constant
 const offsetDefault = '0';
@@ -11,8 +12,8 @@ const samplePokemonName = 'ditto';
 
 /// Pokemon Collections
 const gridRowCount = 2;
-const pokemonErrorMessage = 'Something went wrong';
-const pokemonEmptyCollectionMessage = 'No Pokemons Available';
+const errorMessage = 'Something went wrong';
+const emptyPokemonsMessage = 'No Pokemons Available';
 
 /// Pokemon Card
 const cardTransparentPlaceholder = 'assets/img/transparent.png';
