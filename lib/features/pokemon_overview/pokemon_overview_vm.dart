@@ -1,13 +1,20 @@
 import 'package:pokedex_start/features/pokemon_overview/pokemon_overview_connector.dart';
 import 'package:pokedex_start/api/model/pokemon.dart';
+import 'package:pokedex_start/state/action/pokemon_actions.dart';
 import 'package:pokedex_start/state/app_state.dart';
+import 'package:pokedex_start/utilities/async.dart';
 import 'package:async_redux/async_redux.dart';
+import 'package:pokedex_start/utilities/constant.dart';
 
 class PokemonOverviewFactory extends VmFactory<AppState, PokemonOverviewConnector> {
   @override
-  Vm fromStore() => PokemonOverviewVm(pokemons: _pokemons);
+  Vm fromStore() => PokemonOverviewVm(pokemons: _pokemons());
 
-  List<Pokemon> get _pokemons => state.pokemons;
+  Async<List<Pokemon>> _pokemons() {
+    if (state.wait.isWaitingFor(GetPokemonsAction.key)) return const Async.loading();
+    if (state.pokemons.isEmpty) return const Async.error(pokemonEmptyCollectionMessage);
+    return Async(state.pokemons);
+  }
 }
 
 class PokemonOverviewVm extends Vm {
@@ -15,5 +22,5 @@ class PokemonOverviewVm extends Vm {
     required this.pokemons,
   }) : super(equals: [pokemons]);
 
-  final List<Pokemon> pokemons;
+  final Async<List<Pokemon>> pokemons;
 }

@@ -9,8 +9,10 @@ const limitDefault = '151';
 /// Pokemon Details Constant
 const samplePokemonName = 'ditto';
 
-/// Pokemon Grid
+/// Pokemon Collections
 const gridRowCount = 2;
+const pokemonErrorMessage = 'Something went wrong';
+const pokemonEmptyCollectionMessage = 'No Pokemons Available';
 
 /// Pokemon Card
 const cardTransparentPlaceholder = 'assets/img/transparent.png';
