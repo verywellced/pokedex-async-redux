@@ -1,19 +1,12 @@
-/// General
-const appName = 'Pokedex';
-const emptyString = '';
-
 /// Pokemon Actions Constant
 const offsetDefault = '0';
 const limitDefault = '151';
 
-/// TODO : Constant below to be removed
-/// Pokemon Details Constant
-const samplePokemonName = 'ditto';
-
 /// Pokemon Collections
 const gridRowCount = 2;
-const errorMessage = 'Something went wrong';
-const emptyPokemonsMessage = 'No Pokemons Available';
+
+// Pokemon Details
+const movesLimit = 5;
 
 /// Pokemon Card
 const cardTransparentPlaceholder = 'assets/img/transparent.png';
@@ -25,3 +18,4 @@ const indexKey = '[index]';
 
 /// Font Size
 const fontSizeSmallText = 14.0;
+const fontSizeMediumText = 18.0;

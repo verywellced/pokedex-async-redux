@@ -2,12 +2,13 @@ import 'package:pokedex_start/api/model/pokemon.dart';
 import 'package:pokedex_start/features/pokemon_overview/widget/pokemon_card.dart';
 import 'package:pokedex_start/utilities/async.dart';
 import 'package:pokedex_start/utilities/constant.dart';
+import 'package:pokedex_start/utilities/string_constant.dart';
 import 'package:flutter/material.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
   const PokemonOverviewPage({
-    super.key,
     required this.pokemons,
+    super.key,
   });
 
   final Async<List<Pokemon>> pokemons;
@@ -30,9 +31,10 @@ class PokemonOverviewPage extends StatelessWidget {
             },
           ),
           loading: () => const CircularProgressIndicator(),
-          error: (pokemonErrorMessage) {
-            WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage));
-            return Text(pokemonErrorMessage ?? emptyString);
+          error: (errorMessage) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString));
+            return const Text(errorMessageDefault);
           },
         ),
       ),
