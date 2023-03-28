@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'package:async_redux/async_redux.dart';
 import 'package:pokedex_start/api/api_service.dart';
 import 'package:pokedex_start/state/action/actions.dart';
 import 'package:pokedex_start/state/app_state.dart';
-import 'package:async_redux/async_redux.dart';
 import 'package:pokedex_start/utilities/constant.dart';
 
 /// Getting of pokemons from pokemon API
@@ -22,8 +22,11 @@ class GetPokemonsAction extends LoadingAction {
 }
 
 /// Getting the details of a pokemon
-class GetPokemonDetailsAction extends ReduxAction<AppState> {
-  GetPokemonDetailsAction({required this.pokemonName});
+class GetPokemonDetailsAction extends LoadingAction {
+  static const key = 'get-pokemon-details-action';
+
+  GetPokemonDetailsAction({required this.pokemonName}) : super(actionKey: key);
+
   final String pokemonName;
 
   @override
@@ -31,4 +34,10 @@ class GetPokemonDetailsAction extends ReduxAction<AppState> {
     final currentPokemonDetails = await ApiService().pokemonApi.getPokemonDetails(name: pokemonName);
     return state.copyWith(currentPokemonDetails: currentPokemonDetails);
   }
+}
+
+// Dispose current details on the store
+class DisposePokemonDetailsAction extends ReduxAction<AppState> {
+  @override
+  AppState reduce() => state.copyWith(currentPokemonDetails: null);
 }

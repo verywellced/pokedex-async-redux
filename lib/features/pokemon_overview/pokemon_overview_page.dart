@@ -2,6 +2,7 @@ import 'package:pokedex_start/api/model/pokemon.dart';
 import 'package:pokedex_start/features/pokemon_overview/widget/pokemon_card.dart';
 import 'package:pokedex_start/utilities/async.dart';
 import 'package:pokedex_start/utilities/constant.dart';
+import 'package:pokedex_start/utilities/string_constant.dart';
 import 'package:flutter/material.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
