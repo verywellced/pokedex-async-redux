@@ -32,7 +32,8 @@ class PokemonOverviewPage extends StatelessWidget {
           ),
           loading: () => const CircularProgressIndicator(),
           error: (pokemonErrorMessage) {
-            WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage));
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessageDefault));
             return Text(pokemonErrorMessage ?? emptyString);
           },
         ),

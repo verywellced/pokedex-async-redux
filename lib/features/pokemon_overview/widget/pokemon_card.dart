@@ -10,20 +10,14 @@ class PokemonCard extends StatelessWidget {
   const PokemonCard({
     super.key,
     required this.pokemon,
-    // required this.onTap,
   });
 
   final Pokemon pokemon;
-  // final Function(String) onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(
-        context,
-        PokemonDetailsConnector.routeName,
-        arguments: DetailsArguments(pokemon.name),
-      ),
+      onTap: () => _navigateToDetailsPage(context, pokemon.name),
       child: Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,3 +34,9 @@ class PokemonCard extends StatelessWidget {
     );
   }
 }
+
+void _navigateToDetailsPage(BuildContext context, String pokemonName) => Navigator.pushNamed(
+      context,
+      PokemonDetailsConnector.routeName,
+      arguments: DetailsArguments(pokemonName),
+    );

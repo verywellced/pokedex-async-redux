@@ -21,11 +21,18 @@ class PokemonDetailsPage extends StatelessWidget {
         child: pokemonDetails.when(
           (data) => PokemonDetailsView(pokemonDetails: data),
           loading: () => const CircularProgressIndicator(),
-          error: (pokemonErrorMessage) {
-            return BodySmallText(text: pokemonErrorMessage ?? emptyString);
+          error: (errorMessage) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessageDefault));
+            return BodySmallText(text: errorMessage ?? emptyString);
           },
         ),
       ),
     );
   }
+}
+
+void _showErrorMessageSnackbar(BuildContext context, String errorMessage) {
+  final snackBar = SnackBar(content: Text(errorMessage));
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }

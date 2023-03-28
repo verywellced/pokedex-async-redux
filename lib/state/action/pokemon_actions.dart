@@ -36,8 +36,8 @@ class GetPokemonDetailsAction extends LoadingAction {
   }
 }
 
-// Dispose current details on the store
-class DisposePokemonDetailsAction extends ReduxAction<AppState> {
+/// Clearing the pokemon details on the store
+class ClearPokemonDetailsAction extends ReduxAction<AppState> {
   @override
   AppState reduce() => state.copyWith(currentPokemonDetails: null);
 }

@@ -47,7 +47,7 @@ class PokemonDetailsView extends StatelessWidget {
                 BodySmallText(text: move.moveDetails.name.capitalize()),
             ],
           ),
-          const VerticalSpace(height: spacingSmall),
+          const VerticalSpace(height: 10.0),
           const HeadlineSmallText(text: statsLabel),
           Wrap(
             children: [

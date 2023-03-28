@@ -17,13 +17,13 @@ class PokemonDetailsConnector extends StatelessWidget {
     return StoreConnector<AppState, PokemonDetailsVm>(
       vm: () => PokemonDetailsFactory(),
       onInit: (store) => store.dispatchAsync(GetPokemonDetailsAction(pokemonName: args.pokemonName)),
-      onDispose: (store) => store.dispatchSync(DisposePokemonDetailsAction()),
-      builder: (context, vm) => PokemonDetailsPage(pokemonDetails: vm.pokemonDetails),
+      onDispose: (store) => store.dispatchSync(ClearPokemonDetailsAction()),
+      builder: (_, vm) => PokemonDetailsPage(pokemonDetails: vm.pokemonDetails),
     );
   }
 }
 
 class DetailsArguments {
-  final String pokemonName;
   DetailsArguments(this.pokemonName);
+  final String pokemonName;
 }

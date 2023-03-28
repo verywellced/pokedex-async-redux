@@ -14,5 +14,5 @@ const basedExperiencedLabelLabel = 'Based Experience : ';
 const errorPokemonDetailsIsEmpty = 'Pokemon Details is Empty';
 
 // Pokemon Overview
-const errorMessage = 'Something went wrong';
+const errorMessageDefault = 'Something went wrong';
 const emptyPokemonsMessage = 'No Pokemons Available';

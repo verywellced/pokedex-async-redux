@@ -1,18 +1,16 @@
-import 'package:pokedex_start/utilities/constant.dart';
 import 'package:pokedex_start/widget/app_text.dart';
 import 'package:pokedex_start/widget/spacing.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class DetailsCard extends StatelessWidget {
-  DetailsCard({
+  const DetailsCard({
     super.key,
     required this.title,
-    this.children = const <Widget>[],
+    required this.children,
   });
 
   final String title;
-  List<Widget> children;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class DetailsCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HeadlineSmallText(text: title),
-            const VerticalSpace(height: spacingXSmall),
+            const VerticalSpace(height: 10.0),
             ...children,
           ],
         ),
