@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 class PokemonOverviewPage extends StatelessWidget {
   const PokemonOverviewPage({
-    super.key,
     required this.pokemons,
+    super.key,
   });
 
   final Async<List<Pokemon>> pokemons;
@@ -31,10 +31,10 @@ class PokemonOverviewPage extends StatelessWidget {
             },
           ),
           loading: () => const CircularProgressIndicator(),
-          error: (pokemonErrorMessage) {
+          error: (errorMessage) {
             WidgetsBinding.instance
-                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessageDefault));
-            return Text(pokemonErrorMessage ?? emptyString);
+                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString));
+            return const Text(errorMessageDefault);
           },
         ),
       ),

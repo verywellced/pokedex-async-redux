@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class StatCard extends StatelessWidget {
   const StatCard({
-    super.key,
     required this.stats,
+    super.key,
   });
 
   final Stats stats;

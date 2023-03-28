@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 
 class PokemonDetailsView extends StatelessWidget {
   const PokemonDetailsView({
-    super.key,
     required this.pokemonDetails,
+    super.key,
   });
 
   final PokemonDetails pokemonDetails;
@@ -30,7 +30,7 @@ class PokemonDetailsView extends StatelessWidget {
             children: [
               BodySmallText(text: '$heightLabel ${pokemonDetails.height}'),
               BodySmallText(text: '$weightLabel ${pokemonDetails.weight}'),
-              BodySmallText(text: '$basedExperiencedLabelLabel ${pokemonDetails.baseExperience}'),
+              BodySmallText(text: '$basedExperiencedLabel ${pokemonDetails.baseExperience}'),
             ],
           ),
           DetailsCard(

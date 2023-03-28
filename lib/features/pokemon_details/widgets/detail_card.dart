@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
-    super.key,
     required this.title,
     required this.children,
+    super.key,
   });
 
   final String title;

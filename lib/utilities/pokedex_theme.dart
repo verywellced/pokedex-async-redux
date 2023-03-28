@@ -2,7 +2,7 @@ import 'package:pokedex_start/utilities/color_constant.dart';
 import 'package:pokedex_start/utilities/constant.dart';
 import 'package:flutter/material.dart';
 
-final ThemeData pokedexTheme = ThemeData().copyWith(
+final pokedexTheme = ThemeData().copyWith(
   scaffoldBackgroundColor: lightGreyColor,
   primaryColor: primaryColor,
   appBarTheme: const AppBarTheme(color: primaryColor),

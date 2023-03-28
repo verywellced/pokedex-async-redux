@@ -10,7 +10,7 @@ const movesLabel = 'Moves';
 const statsLabel = 'Stats';
 const weightLabel = 'Weight : ';
 const heightLabel = 'Height : ';
-const basedExperiencedLabelLabel = 'Based Experience : ';
+const basedExperiencedLabel = 'Based Experience : ';
 const errorPokemonDetailsIsEmpty = 'Pokemon Details is Empty';
 
 // Pokemon Overview

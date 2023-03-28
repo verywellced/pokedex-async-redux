@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
   const PokemonDetailsPage({
-    super.key,
     required this.pokemonDetails,
+    super.key,
   });
 
   final Async<PokemonDetails> pokemonDetails;
@@ -23,8 +23,8 @@ class PokemonDetailsPage extends StatelessWidget {
           loading: () => const CircularProgressIndicator(),
           error: (errorMessage) {
             WidgetsBinding.instance
-                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessageDefault));
-            return BodySmallText(text: errorMessage ?? emptyString);
+                .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString));
+            return const BodySmallText(text: errorMessageDefault);
           },
         ),
       ),
