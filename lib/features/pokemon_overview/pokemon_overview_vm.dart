@@ -12,7 +12,7 @@ class PokemonOverviewFactory extends VmFactory<AppState, PokemonOverviewConnecto
   Vm fromStore() => PokemonOverviewVm(
         pokemons: _pokemons(),
         searchedPokemons: state.searchedPokemons,
-        getFilterPokemons: (queryText) => _getFilteredPokemons(queryText),
+        getFilteredPokemons: (queryText) => _getFilteredPokemons(queryText),
         clearSearchedPokemons: _clearSearchedPokemons,
       );
 
@@ -30,12 +30,12 @@ class PokemonOverviewVm extends Vm {
   PokemonOverviewVm({
     required this.pokemons,
     required this.searchedPokemons,
-    required this.getFilterPokemons,
+    required this.getFilteredPokemons,
     required this.clearSearchedPokemons,
   }) : super(equals: [pokemons, searchedPokemons]);
 
   final Async<List<Pokemon>> pokemons;
   final List<Pokemon> searchedPokemons;
   final VoidCallback clearSearchedPokemons;
-  final Function(String) getFilterPokemons;
+  final Function(String) getFilteredPokemons;
 }
