@@ -16,3 +16,4 @@ const errorPokemonDetailsIsEmpty = 'Pokemon Details is Empty';
 // Pokemon Overview
 const errorMessageDefault = 'Something went wrong';
 const emptyPokemonsMessage = 'No Pokemons Available';
+const noSearchResultsFoundMessage = 'No search results found!';
