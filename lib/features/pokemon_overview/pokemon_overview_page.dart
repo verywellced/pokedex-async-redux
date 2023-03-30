@@ -41,6 +41,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
 
   @override
   void dispose() {
+    _clearSearchedPokemonsOnDispose();
     _searchController.dispose();
     _debounceTimer?.cancel();
     super.dispose();
@@ -85,6 +86,10 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
       _searchController.text = emptyString;
       isSearching = false;
     });
+  }
+
+  void _clearSearchedPokemonsOnDispose() {
+    if (widget.searchedPokemons.isNotEmpty) widget.clearSearchedPokemons;
   }
 
   void _onSearchTextChanged(String queryText) {
