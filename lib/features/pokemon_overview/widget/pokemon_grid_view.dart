@@ -8,14 +8,16 @@ import 'package:flutter/material.dart';
 class PokemonGridView extends StatelessWidget {
   const PokemonGridView({
     required this.pokemons,
+    this.isSearching = false,
     super.key,
   });
 
   final List<Pokemon> pokemons;
+  final bool isSearching;
 
   @override
   Widget build(BuildContext context) {
-    if (pokemons.isEmpty) return const Center(child: BodySmallText(text: noSearchResultsFoundMessage));
+    if (pokemons.isEmpty && isSearching) return const Center(child: BodySmallText(text: noSearchResultsFoundMessage));
     return GridView.builder(
       itemCount: pokemons.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

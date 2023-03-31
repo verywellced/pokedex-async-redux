@@ -64,7 +64,10 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
             const VerticalSpace(height: 20.0),
             Expanded(
               child: isSearching
-                  ? PokemonGridView(pokemons: widget.searchedPokemons)
+                  ? PokemonGridView(
+                      pokemons: widget.searchedPokemons,
+                      isSearching: true,
+                    )
                   : widget.pokemons.when(
                       (data) => PokemonGridView(pokemons: data),
                       loading: () => const Center(child: CircularProgressIndicator()),
