@@ -66,7 +66,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
               child: isSearching
                   ? PokemonGridView(
                       pokemons: widget.searchedPokemons,
-                      isSearching: true,
+                      shouldShowFallbackLabel: true,
                     )
                   : widget.pokemons.when(
                       (data) => PokemonGridView(pokemons: data),
