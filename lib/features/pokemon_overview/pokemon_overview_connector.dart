@@ -16,8 +16,8 @@ class PokemonOverviewConnector extends StatelessWidget {
       builder: (context, vm) => PokemonOverviewPage(
         pokemons: vm.pokemons,
         searchedPokemons: vm.searchedPokemons,
-        filterPokemons: vm.getFilteredPokemons,
-        clearSearchedPokemons: vm.clearSearchedPokemons,
+        onSearchPokemons: vm.onSearchPokemons,
+        onClearSearchedPokemons: vm.onClearSearchedPokemons,
       ),
     );
   }

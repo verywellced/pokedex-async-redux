@@ -22,7 +22,7 @@ class PokemonGridView extends StatelessWidget {
         crossAxisCount: gridRowCount,
         childAspectRatio: cardRatio,
       ),
-      itemBuilder: (_, int index) {
+      itemBuilder: (_, index) {
         final pokemon = pokemons[index];
         return PokemonCard(pokemon: pokemon);
       },

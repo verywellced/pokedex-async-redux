@@ -9,19 +9,19 @@ import 'package:pokedex_start/widget/app_text.dart';
 import 'package:pokedex_start/widget/spacing.dart';
 import 'package:flutter/material.dart';
 
-class PokemonOverviewPage extends StatefulWidget {
+class PokemonOverviewPage<T> extends StatefulWidget {
   const PokemonOverviewPage({
     required this.pokemons,
     required this.searchedPokemons,
-    required this.filterPokemons,
-    required this.clearSearchedPokemons,
+    required this.onSearchPokemons,
+    required this.onClearSearchedPokemons,
     super.key,
   });
 
   final Async<List<Pokemon>> pokemons;
   final List<Pokemon> searchedPokemons;
-  final VoidCallback clearSearchedPokemons;
-  final Function(String) filterPokemons;
+  final VoidCallback onClearSearchedPokemons;
+  final ValueChanged<T> onSearchPokemons;
 
   @override
   State<PokemonOverviewPage> createState() => _PokemonOverviewPageState();
@@ -35,15 +35,17 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   @override
   void initState() {
     super.initState();
+
+    _searchController = TextEditingController()..addListener(_onSearchPokemons);
     isSearching = false;
-    _searchController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _clearSearchedPokemonsOnDispose();
+    _onClearSearchedPokemons();
     _searchController.dispose();
     _debounceTimer?.cancel();
+
     super.dispose();
   }
 
@@ -57,8 +59,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
           children: [
             SearchBar(
               searchController: _searchController,
-              onClear: _clearSearchedPokemons,
-              onChanged: (val) => _onSearchTextChanged(val),
+              onClearSearchText: _clearSearchedPokemons,
             ),
             const VerticalSpace(height: 20.0),
             Expanded(
@@ -69,7 +70,8 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
                       loading: () => const Center(child: CircularProgressIndicator()),
                       error: (errorMessage) {
                         WidgetsBinding.instance.addPostFrameCallback(
-                            (_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString));
+                          (_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString),
+                        );
                         return const BodySmallText(text: errorMessageDefault);
                       },
                     ),
@@ -81,25 +83,23 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
   }
 
   void _clearSearchedPokemons() {
-    widget.clearSearchedPokemons;
-    setState(() {
-      _searchController.text = emptyString;
-      isSearching = false;
-    });
+    widget.onClearSearchedPokemons;
+    _searchController.text = emptyString;
+    setState(() => isSearching = false);
   }
 
-  void _clearSearchedPokemonsOnDispose() {
-    if (widget.searchedPokemons.isNotEmpty) widget.clearSearchedPokemons;
+  void _onClearSearchedPokemons() {
+    if (widget.searchedPokemons.isNotEmpty) widget.onClearSearchedPokemons;
   }
 
-  void _onSearchTextChanged(String queryText) {
-    _debounceTimer = Timer(
-      const Duration(milliseconds: 1000),
-      () => setState(() {
-        widget.filterPokemons(queryText);
-        isSearching = true;
-      }),
-    );
+  void _onSearchPokemons() {
+    if (_debounceTimer?.isActive ?? false) _debounceTimer?.cancel();
+    _debounceTimer = Timer(const Duration(milliseconds: 1000), () => _searchPokemons());
+  }
+
+  void _searchPokemons() {
+    widget.onSearchPokemons(_searchController.text);
+    isSearching = true;
   }
 }
 

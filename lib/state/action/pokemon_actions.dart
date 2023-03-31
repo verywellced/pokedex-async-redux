@@ -1,5 +1,4 @@
 import 'package:pokedex_start/api/api_service.dart';
-import 'package:pokedex_start/api/model/pokemon.dart';
 import 'package:pokedex_start/state/action/actions.dart';
 import 'package:pokedex_start/state/app_state.dart';
 import 'package:pokedex_start/utilities/constant.dart';
@@ -31,9 +30,8 @@ class SearchPokemonsAction extends ReduxAction<AppState> {
 
   @override
   AppState reduce() {
-    final currentPokemons = state.pokemons;
-    List<Pokemon> searchedPokemons =
-        currentPokemons.filter((pokemon) => pokemon.name.contains(queryText.toLowerCase())).toList();
+    final searchedPokemons =
+        state.pokemons.filter((pokemon) => pokemon.name.contains(queryText.toLowerCase())).toList();
     return state.copyWith(searchedPokemons: searchedPokemons);
   }
 }
