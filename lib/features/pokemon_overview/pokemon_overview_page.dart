@@ -9,7 +9,7 @@ import 'package:pokedex_start/widget/app_text.dart';
 import 'package:pokedex_start/widget/spacing.dart';
 import 'package:flutter/material.dart';
 
-class PokemonOverviewPage<T> extends StatefulWidget {
+class PokemonOverviewPage extends StatefulWidget {
   const PokemonOverviewPage({
     required this.pokemons,
     required this.searchedPokemons,
@@ -21,7 +21,7 @@ class PokemonOverviewPage<T> extends StatefulWidget {
   final Async<List<Pokemon>> pokemons;
   final List<Pokemon> searchedPokemons;
   final VoidCallback onClearSearchedPokemons;
-  final ValueChanged<T> onSearchPokemons;
+  final ValueChanged onSearchPokemons;
 
   @override
   State<PokemonOverviewPage> createState() => _PokemonOverviewPageState();
@@ -87,7 +87,7 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
 
   void _clearSearchedPokemons() {
     widget.onClearSearchedPokemons;
-    _searchController.text = emptyString;
+    _searchController.clear();
     setState(() => isSearching = false);
   }
 
@@ -97,12 +97,12 @@ class _PokemonOverviewPageState extends State<PokemonOverviewPage> {
 
   void _onSearchPokemons() {
     if (_debounceTimer?.isActive ?? false) _debounceTimer?.cancel();
-    _debounceTimer = Timer(const Duration(milliseconds: 1000), () => _searchPokemons());
+    _debounceTimer = Timer(const Duration(milliseconds: 1000), _searchPokemons);
   }
 
   void _searchPokemons() {
     widget.onSearchPokemons(_searchController.text);
-    isSearching = true;
+    setState(() => isSearching = true);
   }
 }
 

@@ -22,7 +22,7 @@ class GetPokemonsAction extends LoadingAction {
   }
 }
 
-///  Searching Pokemon Action
+///  Searching pokemons from the store
 class SearchPokemonsAction extends ReduxAction<AppState> {
   SearchPokemonsAction({required this.queryText});
 
@@ -36,7 +36,7 @@ class SearchPokemonsAction extends ReduxAction<AppState> {
   }
 }
 
-/// Clearing Searched Pokemon on the store
+/// Clearing searchedPokemons in the store
 class ClearSearchedPokemonsAction extends ReduxAction<AppState> {
   @override
   AppState reduce() => state.copyWith(searchedPokemons: List.empty());
@@ -57,7 +57,7 @@ class GetPokemonDetailsAction extends LoadingAction {
   }
 }
 
-/// Clearing the pokemon details on the store
+/// Clearing the pokemon details in the store
 class ClearPokemonDetailsAction extends ReduxAction<AppState> {
   @override
   AppState reduce() => state.copyWith(currentPokemonDetails: null);

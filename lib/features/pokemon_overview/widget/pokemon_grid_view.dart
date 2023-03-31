@@ -17,8 +17,10 @@ class PokemonGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (pokemons.isEmpty && shouldShowFallbackLabel)
+    if (pokemons.isEmpty && shouldShowFallbackLabel) {
       return const Center(child: BodySmallText(text: noSearchResultsFoundMessage));
+    }
+
     return GridView.builder(
       itemCount: pokemons.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
